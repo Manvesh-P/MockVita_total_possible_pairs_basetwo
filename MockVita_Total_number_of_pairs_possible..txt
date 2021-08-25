@@ -1,0 +1,32 @@
+# The total number of inversions that occurs from converting the given sequence into binary format and then adding them.
+
+list1 = []
+list2 = []
+c = 0
+
+def basetwo(q):
+    list3 = []
+    while q != 0:
+        list3.append(q % 2)
+        q = q // 2
+    return sum(list3)
+
+
+N = int(input("Enter the count: "))
+
+for i in range(0, N):
+    list1.append(int(input("Enter the number: ")))
+    
+#print(list1)
+
+for j in range(0, len(list1)):
+    list2.append(basetwo(list1[j]))
+    
+#print(list2)
+
+for i in range(0, len(list2)):
+    for j in  range(i+1, len(list2)):
+        if list2[i] > list2[j]:
+            c += 1
+            
+print(c)
